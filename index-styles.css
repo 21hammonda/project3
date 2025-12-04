@@ -1,0 +1,1111 @@
+.vt323-regular {
+  font-family: "VT323", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+:root {
+  /* --desktop-bg: #008080; */
+  --desktop-bg: #000000;
+  --window-bg: #e0e0e0;
+  --accent-color: #000080;
+}
+  
+/* BASE */
+body {
+  margin: 0;
+  /* font-family: "MS Sans Serif", Arial, sans-serif; */
+  font-family: "VT323", monospace;
+}
+  
+/* UTILITY  */
+.hidden {
+  display: none;
+}
+  
+/* LOGIN SCREEN --------------------------------------------- */
+.login-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--desktop-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-window {
+  width: 420px;
+}
+
+.login-subtitle {
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.login-hint {
+  font-size: 11px;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Login tabs */
+.login-tabs {
+  display: flex;
+  margin: 8px 0 10px;
+  border-bottom: 2px inset #d0d0d0;
+}
+  
+.login-tab {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 13px;
+  background: #dcdcdc;
+  border: 2px outset white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.login-tab.active {
+  border: 2px inset white;
+  background: #e8e8e8;
+}
+
+.signup-only.hidden {
+  display: none;
+}
+
+
+
+
+/* DESKTOP -------------------------------------------------- */
+/* .desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative; */
+  /* background: var(--desktop-bg); */
+  /* background-image: var(--desktop-pattern) !important; */
+  /* background-color: var(--desktop-bg);
+  background-repeat: repeat;
+  background-size: 16px 16px;
+  overflow: hidden;
+} */
+
+/* .desktop {
+  background-color: var(--desktop-bg) !important;
+  background-repeat: repeat !important;
+  background-size: 16px 16px !important;
+  background-image: var(--desktop-pattern) !important;
+} */
+
+/* .desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-color: var(--desktop-bg);
+  background-repeat: repeat;
+  background-size: 16px 16px;
+} */
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--desktop-bg);
+  /* background-image: none; */
+  /* background-repeat: repeat; 
+  background-size: 16px 16px; */
+}
+
+#desktopPatternOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* background-repeat: repeat;
+  background-size: 16px 16px; */
+  z-index: 1;          /* sits ABOVE the solid bg color */
+}
+
+
+/* CONTROL PANEL -------------------------------------------- */
+.control-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 32px; /* leaving space for start bar */
+  width: 230px;
+  background: #c0c0c0;
+  border-right: 3px solid #707070;
+  padding: 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* enables scrolling */
+  overflow-y: auto;        
+  scrollbar-color: #a0a0a0 #e0e0e0;
+  scrollbar-width: thin;
+}
+
+  
+.cp-header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #fff;
+}
+
+.cp-icon {
+  font-size: 18px;
+}
+
+.cp-header h1 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.cp-header p {
+  font-size: 9px;
+  margin: 0;
+}
+
+.cp-section {
+  border: 2px inset #d0d0d0;
+  padding: 6px;
+  background: #e0e0e0;
+  font-size: 9px;
+}
+
+.cp-section h2 {
+  font-size: 11px;
+  margin: 0 0 6px 0;
+}
+
+.cp-section label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.cp-launch {
+  width: 100%;
+  margin-bottom: 4px;
+}
+  
+.runner-name {
+  font-weight: bold;
+}
+
+/* START BAR ------------------------------------------------ */
+.start-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: #c0c0c0;
+  border-top: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* account for control panel width */
+  padding-left: 240px; 
+  box-sizing: border-box;
+}
+
+.start-button {
+  background: #dcdcdc;
+  border: 2px outset #fff;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.taskbar-clock {
+  padding-right: 12px;
+  font-size: 12px;
+}
+
+/* WINDOW SHARED STYLES -------------------------------------------------------------------------- */
+.window {
+  background: var(--window-bg);
+  border: 3px solid #707070;
+  position: absolute;
+  box-shadow: 2px 2px 0 #000;
+}
+  
+/* App windows appear to the right of control panel */
+.app-window {
+  min-width: 380px;
+}
+
+/* TITLEBAR */
+.window-titlebar {
+  background: var(--accent-color);
+  color: white;
+  padding: 4px 8px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+}
+
+/* TITLEBAR BUTTONS */
+.window-controls .win-btn {
+  width: 22px;
+  height: 18px;
+  margin-left: 3px;
+  font-size: 12px;
+  background: #c0c0c0;
+  border: 2px outset white;
+  cursor: pointer;
+}
+
+.window-controls .win-btn:hover {
+  background: #e8e8e8;
+}
+
+/* WINDOW CONTENT  */
+.window-content {
+  padding: 12px 16px 16px;
+  background: #efefef;
+}
+
+.window-content h2 {
+  margin-top: 0;
+}
+  
+/* ------------------------------------- FORMS + INPUTS ------------------------------------------- */
+input, textarea, select {
+  /* font-family: "MS Sans Serif", Arial; */
+  font-family: "VT323", monospace;
+  background: white;
+  border: 2px inset #d0d0d0;
+  padding: 3px;
+  font-size: 10px;
+}
+
+textarea {
+  width: 95%;
+  height: 60px;
+}
+
+.log-form label,
+.race-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* BUTTONS -------------------------------------------------- */
+.retro-btn {
+  background: #dcdcdc;
+  border: 2px outset white;
+  padding: 4px 12px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.retro-btn:hover {
+  background: #ffffff;
+}
+
+/* TABLES --------------------------------------------------- */
+.retro-table {
+  width: 100%;
+  border: 2px solid #707070;
+  margin-top: 12px;
+  font-size: 10px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.retro-table th,
+.retro-table td {
+  border: 1px solid #999;
+  padding: 4px;
+}
+
+/* JOURNAL WINDOW ------------------------------------------- */
+/* .journal-content {
+  background: #fdfaf0;
+  border: 2px inset #d0d0d0;
+  padding: 0;
+} */
+
+/* .journal-header {
+  display: flex;
+  background: #dcd2b0;
+  border-bottom: 2px inset #c0b890;
+  font-size: 10px;
+}
+
+.journal-tab {
+  padding: 4px 10px;
+  border-right: 2px inset #c0b890;
+}
+
+.journal-tab.disabled {
+  opacity: 0.6;
+} */
+
+/* .journal-entries {
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.04) 1px,
+      transparent 1px
+    );
+  background-size: 100% 22px;
+} */
+
+/* .journal-entry {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #c0b890;
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  font-size: 10px;
+  box-shadow: 1px 1px 0 #b69e7a;
+} */
+
+.journal-entry-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.journal-entry-meta {
+  font-size: 10px;
+  opacity: 0.8;
+  margin-bottom: 2px;
+}
+
+/* NEW JOURNAL STUFF  */
+
+/* JOURNAL — REAL NOTEBOOK LOOK  */
+
+/* .journal-book {
+  display: flex;
+  height: 100%;
+} */
+
+.journal-page-title {
+  /* font-family: "Times New Roman", serif; */
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #5b4636;
+  text-shadow: 1px 1px #fff;
+}
+
+
+
+/* JOURNAL TOOLBAR  */
+.journal-toolbar {
+  background: #d4d0c8;
+  border-bottom: 2px solid #a5a5a5;
+  padding: 4px;
+  display: flex;
+  gap: 6px;
+}
+
+.toolbar-btn {
+  background: #e4e4e4;
+  border: 2px outset #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.toolbar-btn:hover {
+  background: #ffffff;
+}
+
+/* PAGE NAVIGATION  */
+.journal-page-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+#journalPageNumber {
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+/* JOURNAL — CLEAN, BRIGHT NOTEBOOK ---------------------------------- */
+
+/* .journal-wrapper {
+  padding: 0;
+  background: var(--window-bg); 
+} */
+
+/* .journal-book {
+  display: flex;
+  height: 100%;
+} */
+
+/* Spiral binding */
+.journal-binding {
+  width: 40px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d0d0d0 0px,
+    #d0d0d0 8px,
+    transparent 8px,
+    transparent 28px
+  );
+  border-right: 3px solid #b3b3b3;
+}
+
+/* Notebook page (crisp white + pastel blue lines) */
+/* .journal-page {
+  flex: 1;
+  padding: 24px 30px;
+  background: white;
+  background-image:
+    linear-gradient(to bottom, rgba(135, 206, 250, 0.25) 1px, transparent 1px);
+  background-size: 100% 26px;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+} */
+
+/* Title */
+.journal-page-title {
+  /* font-family: "Georgia", serif; */
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  margin-top: 0;
+  color: #3366cc;
+  text-shadow: 0 1px #e6e6e6;
+}
+
+/* Entry card */
+.journal-entry {
+  background: white;
+  border: 1px solid #d3d3d3;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+/* Cute tape at top (cool white-blue) */
+.journal-entry::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 70px;
+  height: 18px;
+  background: rgba(180, 215, 255, 0.55);
+  border-radius: 3px;
+}
+
+/* Entry header */
+.journal-entry-header {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+/* Meta row */
+.journal-entry-meta {
+  font-size: 11.5px;
+  color: #4b4b4b;
+  margin-bottom: 6px;
+}
+
+/* Notes body */
+.journal-entry-body {
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+  
+/* CONGRATS WINDOW  */
+.congrats-window {
+  max-width: 540px;
+}
+
+.congrats-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 8px auto 0;
+  image-rendering: pixelated;
+}
+
+/* SMALL RESPONSIVE TOUCH  */
+@media (max-width: 900px) {
+  .control-panel {
+    width: 190px;
+  }
+
+  .start-bar {
+    padding-left: 200px;
+  }
+}
+
+
+/* WEEKLY GRAPH CONTROLS */
+.week-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+  
+.week-label {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.week-picker {
+  margin-bottom: 8px;
+  font-size: 10px;
+}
+
+#weekDateInput {
+  font-size: 10px;
+}
+
+/* SVG CHART  */
+#mileageChart {
+  background: #ffffff;
+  border: 2px inset #d0d0d0;
+}
+
+/* PACE LEGEND  */
+.pace-legend {
+  margin-top: 6px;
+  font-size: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  margin-right: 4px;
+  border: 1px solid #707070;
+  vertical-align: middle;
+}
+
+.legend-fast {
+  background: #ff7070;
+}
+
+.legend-medium {
+  background: #ffd56b;
+}
+
+.legend-easy {
+  background: #7fbfff;
+}
+
+.legend-nodata {
+  background: #cccccc;
+}
+
+
+/* TAB BAR -------------------------------------------------------- */
+.tab-bar {
+  display: flex;
+  background: #c0c0c0;
+  border-bottom: 2px inset #fff;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  background: #dcdcdc;
+  border: 2px outset white;
+  text-align: center;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  border: 2px inset white;
+}
+
+/* TAB CONTENT ----------------------------------------------------- */
+.training-tabs {
+  padding-top: 12px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+/* WIN95 ANALOG CLOCK ------------------------------------------------- */
+.win95-clock {
+  width: 80px;
+  height: 80px;
+  margin: 8px auto;
+  background: #c0c0c0;
+  border: 2px inset #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-face {
+  width: 64px;
+  height: 64px;
+  background: #e4e4e4;
+  border: 2px outset #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.clock-center {
+  width: 6px;
+  height: 6px;
+  background: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock-hand {
+  position: absolute;
+  width: 2px;
+  background: #000;
+  top: 50%;
+  left: 50%;
+  transform-origin: bottom center;
+}
+
+.hour-hand {
+  height: 16px;
+}
+
+.minute-hand {
+  height: 22px;
+}
+
+.second-hand {
+  height: 26px;
+  background: #a00000;
+}
+
+/* APP GRID ----------------------------------------------------------- */
+.app-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.app-tile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #dcdcdc;
+  border: 2px outset white;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.app-tile:hover {
+  background: #ffffff;
+}
+
+.app-icon {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+}
+
+.journal-entry {
+  position: relative;
+}
+
+.journal-entry-stickers {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  max-width: 80px; /* ensures they don't overflow */
+}
+
+.journal-sticker {
+  width: 32px;
+  height: 32px;
+  image-rendering: pixelated;
+}
+
+.entry-select-mode {
+  outline: 2px dashed #6699ff;
+  cursor: pointer;
+}
+
+.sticker-picker {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.sticker-picker-content {
+  background: #e0e0e0;
+  padding: 20px;
+  border: 3px solid #707070;
+  width: 280px;
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sticker-grid img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  image-rendering: pixelated;
+  border: 2px outset #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.journal-photo {
+  width: 100%;
+  max-width: 230px;
+  margin-top: 8px;
+  border: 2px solid #000;
+
+  /* 90s digital camera look */
+  image-rendering: pixelated;
+  filter:
+      blur(0.4px)
+      brightness(0.92)
+      contrast(0.85)
+      saturate(0.8)
+      sepia(0.05);
+}
+
+.journal-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: url("images/static-noise.png"); */
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+
+
+/* tooltip css for weekly graph */
+.chart-tooltip {
+  position: fixed;
+  background: #fffff0;
+  border: 2px solid #000;
+  padding: 6px 10px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
+  box-shadow: 3px 3px 0 #777;
+}
+
+.chart-tooltip.hidden {
+  display: none;
+}
+
+
+
+.window {
+  position: absolute;
+  resize: none; /* disable native browser resizing */
+  overflow: hidden; 
+}
+
+/* Bottom-right resize handle */
+.window-resizer {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  background: url("data:image/svg+xml,%3Csvg width='14' height='14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 14 L14 0' stroke='%23666'/%3E%3C/svg%3E") no-repeat center;
+  cursor: se-resize;
+  image-rendering: pixelated;
+}
+
+.win95-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.popup-content {
+  background: #e0e0e0;
+  border: 3px solid #707070;
+  padding: 16px 20px;
+  width: 260px;
+  box-shadow: 3px 3px 0 #000;
+}
+
+.popup-content h3 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.palette-option {
+  border: 2px outset #fff;
+  cursor: pointer;
+  padding: 4px;
+  background: #dcdcdc;
+}
+
+.palette-option.selected {
+  border: 2px inset #fff;
+}
+
+.palette-swatch {
+  display: flex;
+  height: 28px;
+}
+
+.palette-swatch div {
+  flex: 1;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* Color grid container */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* 8 across → tighter, retro */
+  gap: 4px;
+  margin-top: 6px;
+}
+
+/* Individual swatches */
+.color-swatch {
+  width: 18px;       /* smaller */
+  height: 18px;      /* smaller */
+  border: 2px outset #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.color-swatch:hover {
+  border: 2px inset #fff;
+}
+
+
+/* Make the Run Journal window stretch with resize */
+
+/* Make notebook page stretch with the window resize */
+/* .journal-window .journal-page {
+  flex: 1;
+  min-height: 0; 
+  height: 100%; 
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+
+  background-image: linear-gradient(
+      to bottom,
+      rgba(135, 206, 250, 0.25) 1px,
+      transparent 1px
+  );
+  background-size: 100% 26px;
+  background-repeat: repeat-y;
+} */
+
+/* #journalWindow {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+#journalWindow .window-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+}
+
+
+
+.journal-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.journal-book {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.journal-page {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background-color: white;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(135, 206, 250, 0.25) 1px,
+      transparent 1px
+  );
+  background-size: 100% 26px;
+  background-repeat: repeat-y;
+  padding: 24px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.journal-entries {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+} */
+
+
+
+/* FIXing JOURNAL WINDOW FULL HEIGHT */
+#journalWindow {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+#journalWindow .window-content {
+  /* This element IS journal-wrapper, so combine rules */
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+
+  /* REMOVE padding so height isn’t blocked */
+  padding: 0 !important;
+}
+
+.journal-book {
+  flex: 1 !important;
+  display: flex !important;
+  min-height: 0 !important;
+}
+
+.journal-page {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+}
+
+.journal-entries {
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+}
+
+/* RESTORE NOTEBOOK PAGE LOOK */
+.journal-page {
+  background-color: white !important;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(135, 206, 250, 0.25) 1px,
+      transparent 1px
+  ) !important;
+  background-size: 100% 26px !important;
+  background-repeat: repeat-y !important;
+
+  padding: 24px 30px !important;   /* restores margins */
+  box-sizing: border-box !important;
+}
+
+/* Restore space for the spiral binding */ 
+.journal-book {
+  background: transparent !important;
+}
+
+/* Ensure entries have spacing again */
+.journal-entry {
+  margin-bottom: 16px !important;
+}
+
+
+
+.boot {
+  position: fixed; inset: 0;
+  background:black;
+  display:flex; align-items:center; justify-content:center;
+  z-index: 9999;
+}
+.boot-gif { width: 420px; }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Images</title>
+    <link rel="stylesheet" href="test-styles.css">
+</head>
+<body>
+    <h1>Testing images and pixelated filters</h1>
+    <p>image-rendering: pixelated;</p>
+    <img src="https://web.archive.org/web/20090805190817/http://geocities.com/afropeach/monkeyspaw.htm" alt="journal page">
+    <p>inserting page into box</p>
+    <div class="window app-window journal-window" id="journalWindow" style="top: 80px; left: 520px;">
+        <div class="window-titlebar">
+          <span>📓 Run Journal</span>
+          <div class="window-controls">
+            <button class="win-btn win-min">_</button>
+            <button class="win-btn">□</button>
+            <button class="win-btn win-close">X</button>
+          </div>
+        </div>
+        <div class="window-content journal-wrapper">
+          <div class="journal-toolbar">
+            <button class="toolbar-btn" id="addStickerBtn">⭐</button>
+            <button class="toolbar-btn" id="paintBtn">🖌</button>
+            <button class="toolbar-btn" id="photoBtn">📷</button>
+          </div>
+        
+          <div class="journal-book">
+            <div class="journal-binding"></div>
+        
+            <div class="journal-page">
+              <h2 class="journal-page-title">My Running Journal</h2>
+        
+              <!-- Page navigation -->
+              <div class="journal-page-controls">
+                <button class="retro-btn" id="prevJournalPage">◀ Prev</button>
+                <span id="journalPageNumber">Page 1</span>
+                <button class="retro-btn" id="nextJournalPage">Next ▶</button>
+              </div>
+        
+              <!-- Page content (only 3 entries shown at a time) -->
+              <div id="journalEntries" class="journal-entries">
+                <!-- JS injects entries for the current page -->
+                <!-- <img src="images/pink-page.png" alt="journal page"> -->
+                <img src="https://i.pinimg.com/originals/86/e4/21/86e42162d216e1f016d0dd49e5278bf2.gif" alt="journal page" width="400px">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <p>inserting page into box checking out</p>
+    <div class="window app-window journal-window" id="journalWindow" style="top: 80px; left: 520px;">
+        <div class="window-titlebar">
+          <span>📓 Run Journal</span>
+          <div class="window-controls">
+            <button class="win-btn win-min">_</button>
+            <button class="win-btn">□</button>
+            <button class="win-btn win-close">X</button>
+          </div>
+        </div>
+        <div class="window-content journal-wrapper">
+          <div class="journal-toolbar">
+            <button class="toolbar-btn" id="addStickerBtn">⭐</button>
+            <button class="toolbar-btn" id="paintBtn">🖌</button>
+            <button class="toolbar-btn" id="photoBtn">📷</button>
+          </div>
+        
+          <div class="journal-book">
+            <div class="journal-binding"></div>
+        
+            <div class="journal-page">
+              <h2 class="journal-page-title">My Running Journal</h2>
+        
+              <!-- Page navigation -->
+              <div class="journal-page-controls">
+                <button class="retro-btn" id="prevJournalPage">◀ Prev</button>
+                <span id="journalPageNumber">Page 1</span>
+                <button class="retro-btn" id="nextJournalPage">Next ▶</button>
+              </div>
+        
+              <!-- Page content (only 3 entries shown at a time) -->
+              <div id="journalEntries" class="journal-entries">
+                <!-- JS injects entries for the current page -->
+                <!-- <img src="images/pink-page.png" alt="journal page"> -->
+                <img src="https://img.itch.zone/aW1nLzE4NjAwOTIyLmdpZg==/original/70ax%2BG.gif" alt="journal page" width="400px">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

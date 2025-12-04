@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RunnerLog44</title>
+  <link rel="stylesheet" href="index-styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- LOGIN SCREEN ------------------------------------------------- -->
+  <div id="loginScreen" class="login-screen">
+    <div class="window login-window">
+      <div class="window-titlebar">
+        <span>Welcome to RunnerLog44</span>
+        <div class="window-controls">
+          <button class="win-btn">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h2 id="loginTitle">Sign In</h2>
+        <p class="login-subtitle" id="loginSubtitle">
+          Log your miles, track your races, and relive every season.
+        </p>
+
+        <div class="login-tabs">
+          <button type="button" class="login-tab active" data-mode="login">Login</button>
+          <button type="button" class="login-tab" data-mode="signup">Create Account</button>
+        </div>
+
+        <form id="loginForm" class="login-form">
+          <label>Runner Name:
+            <input type="text" id="runnerName" placeholder="Type your name…" required>
+          </label>
+          <label>Email (optional):
+            <input type="email" id="runnerEmail" placeholder="you@example.com">
+          </label>
+          <label>Password:
+            <input type="password" id="runnerPassword" placeholder="•••••••">
+          </label>
+          <label class="signup-only hidden">Confirm Password:
+            <input type="password" id="runnerPasswordConfirm" placeholder="•••••••">
+          </label>
+          <button type="submit" class="retro-btn" id="loginSubmitBtn">Sign In</button>
+        </form>
+
+        <p class="login-hint" id="loginHint">
+            Here's an account if you want to check one out.<br>Username: adalen<br>Password: runner1
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="bootScreen" class="boot hidden">
+    <img src="images/win95-boot.gif" class="boot-gif">
+  </div>
+  
+
+  <!-- DESKTOP ------------------------------------------------------ -->
+  <div class="desktop hidden" id="desktop">
+    <div id="desktopPatternOverlay"></div>
+
+
+    <!-- LEFT CONTROL PANEL (THEME + INFO) -->
+    <aside class="control-panel">
+      <div class="cp-header">
+        <div class="cp-icon"><img src="images/icon-puppy.gif"></div>
+        <div>
+          <h1 id="sidebarUsername">RunnerLog00</h1>
+          <p>Running Log • Scrapbook • Training Brain</p>
+        </div>
+      </div>
+
+      <div class="cp-section">
+        <h2>Theme</h2>
+        <label>
+          Desktop Color:
+          <!-- <input type="color" id="desktopColor" value="#008080"> -->
+          <div class="color-grid" id="desktopColorGrid"></div>
+        </label>
+        <label>
+          Window Color:
+          <!-- <input type="color" id="windowColor" value="#e0e0e0"> -->
+          <div class="color-grid" id="windowColorGrid"></div>
+        </label>
+        <label>
+          Accent Color:
+          <!-- <input type="color" id="accentColor" value="#000080"> -->
+          <div class="color-grid" id="accentColorGrid"></div>
+        </label>
+      </div>
+
+      <div class="cp-section">
+        <h2>Background Pattern</h2>
+      
+        <label>
+          Pattern:
+          <select id="patternSelect">
+            <option value="none">None</option>
+            <option value="dots">Dots</option>
+            <option value="grid">Grid</option>
+            <option value="crosshatch">Crosshatch</option>
+            <option value="diagonal">Diagonal Lines</option>
+            <option value="bricks">Bricks</option>
+          </select>
+        </label>
+      
+        <label>
+          Pattern Color:
+          <input type="color" id="patternColor" value="#ffffff">
+        </label>
+      </div>
+      
+
+      <!-- <div class="cp-section">
+        <h2>Today</h2>
+        <p id="runnerGreeting">Logged in as: <span class="runner-name">Runner</span></p>
+        <p id="todayDate"></p>
+      </div> -->
+      <div class="cp-section">
+        <h2>Today</h2>
+      
+        <p id="runnerGreeting">
+          Logged in as: <span class="runner-name">Runner</span>
+        </p>
+      
+        <div id="win95Clock" class="win95-clock">
+          <div class="clock-face">
+            <div class="clock-center"></div>
+            <div class="clock-hand hour-hand"></div>
+            <div class="clock-hand minute-hand"></div>
+            <div class="clock-hand second-hand"></div>
+          </div>
+        </div>
+      
+        <p id="todayDate"></p>
+      </div>
+      
+
+      <!-- <div class="cp-section">
+        <h2>Windows</h2>
+        <button class="retro-btn cp-launch" data-target="logWindow">Open Log</button>
+        <button class="retro-btn cp-launch" data-target="journalWindow">Open Journal</button>
+        <button class="retro-btn cp-launch" data-target="trainingHubWindow">Open Training Hub</button>        
+        
+      </div> -->
+
+      <div class="cp-section">
+        <h2>Apps</h2>
+      
+        <div class="app-grid">
+          <div class="app-tile" data-target="logWindow">
+            <img src="images/icon-log.gif" class="app-icon">
+            <span>Daily Log</span>
+          </div>
+      
+          <div class="app-tile" data-target="journalWindow">
+            <img src="images/icon-journal.gif" class="app-icon">
+            <span>Journal</span>
+          </div>
+      
+          <div class="app-tile" data-target="trainingHubWindow">
+            <img src="images/icon-training.gif" class="app-icon">
+            <span>Training Hub</span>
+          </div>
+        </div>
+      </div>
+      
+
+
+    </aside>
+
+    <!-- START BAR -->
+    <div class="start-bar">
+      <div class="start-button" id="logoutBtn">Log Out</div>
+      <div class="taskbar-clock" id="taskbarClock">9:41 AM</div>
+    </div>
+
+    <!----------------------------------------------------- WINDOWS --------------------------------------------------- -->
+
+    <!-- RUN LOG WINDOW (FORM + TABLE) -->
+    <div class="window app-window" id="logWindow" style="top: 40px; left: 260px;">
+      <div class="window-titlebar">
+        <span><img src="images/icon-log.gif" class="app-icon"> Daily Running Log</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h2>Daily Running Log</h2>
+
+        <form class="log-form">
+          <label>Date:
+            <input type="date" id="logDate">
+          </label>
+
+          <label>Distance (mi):
+            <input type="number" step="0.01" id="logDistance">
+          </label>
+
+          <label>Time (HH:MM):
+            <input type="text" placeholder="00:00" id="logTime">
+          </label>
+
+          <label>Temp (°F):
+            <input type="number" id="logTemp" step="1">
+          </label>
+
+          <label>Shoes:
+            <select id="logShoeSelect">
+              <option value="">-- Select Shoe --</option>
+            </select>
+          </label>
+
+          <label>Notes:
+            <textarea id="logNotes" placeholder="How did the run feel?"></textarea>
+          </label>
+
+          <button type="button" class="retro-btn" id="addLogEntry">Add Entry</button>
+        </form>
+
+        <table class="retro-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Distance</th>
+              <th>Time</th>
+              <th>Temp (°F)</th>
+              <th>Shoe</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="logTableBody">
+            <!-- JS will add rows hopefully -->
+          </tbody>
+        </table>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+    <!-- --------------------------------------------------- RUN JOURNAL WINDOW (SCRAPBOOK STYLE) -->
+    <div class="window app-window journal-window" id="journalWindow" style="top: 80px; left: 520px;">
+      <div class="window-titlebar">
+        <span><img src="images/icon-journal.gif" class="app-icon"> Run Journal</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+      <div class="window-content journal-wrapper">
+        <div class="journal-toolbar">
+          <button class="toolbar-btn" id="addStickerBtn"><img src="images/star-icon.png" class="app-icon"></button>
+          <button class="toolbar-btn" id="paintBtn"><img src="images/icon-paintbrush.png" class="app-icon"></button>
+          <button class="toolbar-btn" id="photoBtn"><img src="images/icon-camera.png" class="app-icon"></button>
+        </div>
+
+        <input type="file" accept="image/*" id="photoInput" class="hidden">
+
+      
+        <div class="journal-book">
+          <div class="journal-binding"></div>
+      
+          <div class="journal-page">
+            <h2 class="journal-page-title">My Running Journal</h2>
+      
+            <!-- Page navigation -->
+            <div class="journal-page-controls">
+              <button class="retro-btn" id="prevJournalPage">◀ Prev</button>
+              <span id="journalPageNumber">Page 1</span>
+              <button class="retro-btn" id="nextJournalPage">Next ▶</button>
+            </div>
+      
+            <!-- Page content (only 3 entries shown at a time) -->
+            <div id="journalEntries" class="journal-entries">
+              <!-- JS injects entries for the current page -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+    <!-- PALETTE POPUP (for color picker in journal option) -->
+    <div id="palettePopup" class="win95-popup hidden">
+      <div class="popup-content">
+        <h3>Select a Color Theme</h3>
+
+        <div id="paletteOptions" class="palette-grid">
+          <!-- JS injects color palettes -->
+        </div>
+
+        <div class="popup-buttons">
+          <button id="applyPaletteBtn" class="retro-btn">Apply</button>
+          <button id="cancelPaletteBtn" class="retro-btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- --------------------------------------------------- TRAINING HUB (3-TAB WINDOW) -->
+    <div class="window app-window" id="trainingHubWindow" style="top: 160px; left: 320px;">
+      <div class="window-titlebar">
+        <span><img src="images/icon-training.gif" class="app-icon"> Training Hub</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+
+      <!-- TAB BAR -->
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="shoesTab">Shoes</button>
+        <button class="tab-btn" data-tab="weeklyTab">Weekly Graph</button>
+        <button class="tab-btn" data-tab="racesTab">Races</button>
+      </div>
+
+      <!-- TAB CONTENT WRAPPER -->
+      <div class="window-content training-tabs">
+
+        <!-- TAB 1 — SHOES ---------------------------------------- -->
+        <div class="tab-content active" id="shoesTab">
+          <h2>Shoe Mileage</h2>
+
+          <label>Shoe Name:
+            <input type="text" id="shoeName">
+          </label>
+
+          <label>Add Miles:
+            <input type="number" step="0.1" id="shoeMiles">
+          </label>
+
+          <button class="retro-btn" id="addShoeMileage">Add / Update Shoe</button>
+
+          <table class="retro-table">
+            <thead>
+              <tr><th>Shoe</th><th>Total Miles</th></tr>
+            </thead>
+            <tbody id="shoeTableBody"></tbody>
+          </table>
+        </div>
+
+        <!-- TAB 2 — WEEKLY GRAPH -------------------------------- -->
+        <div class="tab-content" id="weeklyTab">
+          <h2>Weekly Mileage Graph</h2>
+
+          <div class="week-controls">
+            <button class="retro-btn" id="prevWeekBtn">◀ Prev</button>
+            <span id="weekLabel" class="week-label">Week of …</span>
+            <button class="retro-btn" id="nextWeekBtn">Next ▶</button>
+          </div>
+
+          <div class="week-picker">
+            <label>
+              Jump to week:
+              <input type="date" id="weekDateInput">
+            </label>
+          </div>
+
+          <svg id="mileageChart" width="420" height="220"></svg>
+          <div id="tooltip" class="chart-tooltip hidden"></div>
+
+          <div class="pace-legend">
+            <span><span class="legend-swatch legend-fast"></span> Fast (≤ 8)</span>
+            <span><span class="legend-swatch legend-medium"></span> Medium (8-10)</span>
+            <span><span class="legend-swatch legend-easy"></span> Easy (> 10)</span>
+            <span><span class="legend-swatch legend-nodata"></span> No Data</span>
+          </div>
+        </div>
+
+        <!-- TAB 3 — RACE TRACKER -------------------------------- -->
+        <div class="tab-content" id="racesTab">
+          <h2>Race Tracker</h2>
+
+          <label>Race Name:
+            <input type="text" id="raceName">
+          </label>
+
+          <label>Date:
+            <input type="date" id="raceDate">
+          </label>
+
+          <label>Goal Time:
+            <input type="text" id="raceGoal" placeholder="00:00">
+          </label>
+
+          <button type="button" class="retro-btn" id="addRace">Add Race</button>
+
+          <table class="retro-table">
+            <thead>
+              <tr><th>Race</th><th>Date</th><th>Goal</th></tr>
+            </thead>
+            <tbody id="raceTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+    
+    
+    <!-- --------------------------------------------------- SHOE MILEAGE WINDOW -->
+    <!-- <div class="window app-window" id="shoeWindow" style="top: 160px; left: 360px;">
+      <div class="window-titlebar">
+        <span>👟 Shoe Mileage</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+      
+      <div class="window-content">
+        <h2>Shoe Mileage</h2>
+
+        <div class="shoe-container">
+          <label>Shoe Name:
+            <input type="text" id="shoeName">
+          </label>
+
+          <label>Initial Miles / Add Miles:
+            <input type="number" step="0.1" id="shoeMiles">
+          </label>
+
+          <button class="retro-btn" id="addShoeMileage">Add / Update Shoe</button>
+        </div>
+
+        <table class="retro-table">
+          <thead>
+            <tr>
+              <th>Shoe</th>
+              <th>Total Miles</th>
+            </tr>
+          </thead>
+          <tbody id="shoeTableBody"></tbody>
+        </table>
+      </div>
+    </div> -->
+
+    <!-- --------------------------------------------------- WEEKLY GRAPH WINDOW ----------------------------------------------------->
+    <!-- <div class="window app-window" id="weeklyWindow" style="top: 220px; left: 260px;">
+        <div class="window-titlebar">
+        <span>📈 Weekly Mileage Graph</span>
+        <div class="window-controls">
+            <button class="win-btn win-min">_</button>
+            <button class="win-btn">□</button>
+            <button class="win-btn win-close">X</button>
+        </div>
+        </div>
+    
+        <div class="window-content">
+        <h2>Weekly Mileage Graph</h2>
+    
+        <div class="week-controls">
+            <button class="retro-btn" id="prevWeekBtn">◀ Prev Week</button>
+            <span id="weekLabel" class="week-label">Week of …</span>
+            <button class="retro-btn" id="nextWeekBtn">Next Week ▶</button>
+        </div>
+    
+        <div class="week-picker">
+            <label>Jump to week:
+            <input type="date" id="weekDateInput">
+            </label>
+        </div> -->
+    
+        <!-- D3 CHART -->
+        <!-- <svg id="mileageChart" width="420" height="220"></svg> -->
+    
+        <!-- PACE LEGEND, four spans -->
+        <!-- <div class="pace-legend">
+            <span><span class="legend-swatch legend-fast"></span> Fast (≤ 8 min/mi)</span>
+            <span><span class="legend-swatch legend-medium"></span> Medium (8–10 min/mi)</span>
+            <span><span class="legend-swatch legend-easy"></span> Easy (> 10 min/mi)</span>
+            <span><span class="legend-swatch legend-nodata"></span> No pace data</span>
+        </div>
+    
+        </div>
+    </div> -->
+      
+
+    <!-- --------------------------------------------------- RACE TRACKER WINDOW -->
+    <!-- <div class="window app-window" id="raceWindow" style="top: 300px; left: 420px;">
+      <div class="window-titlebar">
+        <span>🏅 Race Tracker</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <h2>Race Tracker</h2>
+
+        <form class="race-form">
+          <label>Race Name:
+            <input type="text" id="raceName">
+          </label>
+
+          <label>Date:
+            <input type="date" id="raceDate">
+          </label>
+
+          <label>Goal Time:
+            <input type="text" id="raceGoal" placeholder="00:00">
+          </label>
+
+          <button type="button" class="retro-btn" id="addRace">Add Race</button>
+        </form>
+
+        <table class="retro-table">
+          <thead>
+            <tr>
+              <th>Race</th>
+              <th>Date</th>
+              <th>Goal</th>
+            </tr>
+          </thead>
+          <tbody id="raceTableBody"></tbody>
+        </table>
+      </div>
+    </div> -->
+
+    <div id="chartTooltip" class="chart-tooltip hidden"></div>
+
+
+
+    <!-- CONGRATS POPUP WINDOW -->
+    <div class="window app-window congrats-window" id="congratsWindow" style="display:none;">
+      <div class="window-titlebar">
+        <span>🎉 Nice Run! 🎉</span>
+        <div class="window-controls">
+          <button class="win-btn win-min">_</button>
+          <button class="win-btn">□</button>
+          <button class="win-btn win-close">X</button>
+        </div>
+      </div>
+      <div class="window-content">
+        <p style="margin-top:0; font-size:13px;">Congrats on today's run!</p>
+        <img id="congratsImage" class="congrats-image" src="" alt="Congrats sticker">
+      </div>
+    </div>
+
+    <!-- STICKER PICK POPUP WINDOW -->
+    <div id="stickerPicker" class="sticker-picker hidden">
+      <div class="sticker-picker-content">
+        <h3>Select a Sticker</h3>
+        <div id="stickerGrid" class="sticker-grid"></div>
+        <button id="closeStickerPicker" class="retro-btn">Cancel</button>
+      </div>
+    </div>
+    
+
+  </div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <!-- <script src="indexNEW.js"></script> -->
+  <script type="module" src="js/core/init.js"></script>
+
+</body>
+</html>
